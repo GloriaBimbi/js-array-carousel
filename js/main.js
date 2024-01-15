@@ -29,8 +29,13 @@ arrowAfterEl.addEventListener("click", function () {
   oldSlide.classList.remove("active");
 
   // incremento slideIndex (indice della slide mostrata)
-  slideIndex++;
-  console.log('Slide index: ' slideIndex);
+  if(slideIndex >= slides.lenght - 1){
+    slideIndex = 0;
+  } else {
+      slideIndex++;
+      console.log('Slide index: ' slideIndex);
+  }
+
 
   // mostro la nuova slide
   const allSlides = document.getElementsByClassName("slide");
@@ -44,8 +49,12 @@ arrowBeforeEl.addEventListener("click", function () {
    oldSlide.classList.remove("active");
  
    // incremento slideIndex (indice della slide mostrata)
-   slideIndex--;
-   console.log('Slide index: ' slideIndex);
+   if(slideIndex <= 0){
+    slideIndex = slides.lenght - 1;
+  } else {
+      slideIndex--;
+      console.log('Slide index: ' slideIndex);
+  }
  
    // mostro la nuova slide
    const allSlides = document.getElementsByClassName("slide");
