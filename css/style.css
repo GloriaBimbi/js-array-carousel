@@ -14,15 +14,17 @@ body {
   height: 100vh;
 }
 
-.carosel-container {
+#carosel-container {
   width: 700px;
   height: 300px;
 }
 
-.carosel-container img {
+#carosel-container img {
   height: 300px;
   width: 700px;
   object-fit: cover;
+
+  display: none;
 }
 
 .arrow-before,
@@ -47,4 +49,8 @@ body {
 
 .arrow-after {
   bottom: 150px;
+}
+
+.active {
+  display: block;
 }
