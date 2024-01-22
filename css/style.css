@@ -17,11 +17,17 @@ body {
 #carosel-container {
   width: 700px;
   height: 300px;
+  position: relative;
+}
+
+#slides-container {
+  width: 700px;
+  height: 300px;
 }
 
 #carosel-container img {
-  height: 300px;
-  width: 700px;
+  height: 100%;
+  width: 100%;
   object-fit: cover;
 
   display: none;
@@ -39,18 +45,17 @@ body {
   align-items: center;
 
   position: absolute;
-  right: 50%;
-  transform: translateX(-50%);
+  left: 350px;
 }
 
 #arrow-before {
-  top: 165px;
+  top: 20px;
 }
 
-arrow-after {
-  bottom: 150px;
+#arrow-after {
+  bottom: 20px;
 }
 
-.active {
+#carosel-container .active {
   display: block;
 }
