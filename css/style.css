@@ -18,11 +18,24 @@ body {
   width: 700px;
   height: 300px;
   position: relative;
+
+  display: flex;
 }
 
 #slides-container {
   width: 700px;
   height: 300px;
+}
+
+#slides-preview {
+  width: 100px;
+  height: 300px;
+  background-color: blue;
+}
+
+.prev-img-container {
+  width: 100%;
+  height: calc(100% / 5);
 }
 
 #carosel-container img {

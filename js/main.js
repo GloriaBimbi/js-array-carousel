@@ -2,6 +2,7 @@
 const slidesContainerEl = document.getElementById("slides-container");
 const arrowBeforeEl = document.getElementById("arrow-before");
 const arrowAfterEl = document.getElementById("arrow-after");
+const sidesPreview = document.getElementById("slides-preview");
 
 // creo l'array di immagini
 const slides = ["01.webp", "02.webp", "03.webp", "04.webp", "05.webp"];
@@ -25,7 +26,7 @@ slidesContainerEl.innerHTML = slidesHtml;
 let newSlide;
 
 // faccio in modo che ogni 3 secondi si passi automaticamente alla slide successiva
-const clock = setInterval(function () {
+const slider = setInterval(function () {
   // con la funzione giusta elimino la classe active dalla slide mostrata
   delateActiveClass();
   // con la funzione giusta incremento slideIndex (indice della slide mostrata) e ottengo anche un ciclo infinito
@@ -35,6 +36,26 @@ const clock = setInterval(function () {
   // con la funzione giusta do la classe active alla nuova slide mostrata
   addActiveClass();
 }, 3000);
+
+// quando il cursore dell'utente è sulla sidesPreview interrompo il setInterval
+sidesPreview.addEventListener("mouseover", function () {
+  clearInterval(slider);
+});
+
+// quando il cursore dell'utente non è più sulla sidesPreview ricomincio il setInterval
+sidesPreview.addEventListener("mouseout", function () {
+  // faccio ripartire lo scorrimento delle slide
+  const sliderRestart = setInterval(function () {
+    // con la funzione giusta elimino la classe active dalla slide mostrata
+    delateActiveClass();
+    // con la funzione giusta incremento slideIndex (indice della slide mostrata) e ottengo anche un ciclo infinito
+    infiniteCircleAfter();
+    // con la funzione giusta mostro la nuova slide
+    showNewSlide();
+    // con la funzione giusta do la classe active alla nuova slide mostrata
+    addActiveClass();
+  }, 3000);
+});
 
 // creo un evento sul click della freccia in basso (arrow next)
 arrowAfterEl.addEventListener("click", function () {
