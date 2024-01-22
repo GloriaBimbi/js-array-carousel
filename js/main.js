@@ -23,6 +23,19 @@ slidesContainerEl.innerHTML = slidesHtml;
 
 //creo una variabile per la nuova slide mostrata dopo il click su un bottone
 let newSlide;
+
+// faccio in modo che ogni 3 secondi si passi automaticamente alla slide successiva
+const clock = setInterval(function () {
+  // con la funzione giusta elimino la classe active dalla slide mostrata
+  delateActiveClass();
+  // con la funzione giusta incremento slideIndex (indice della slide mostrata) e ottengo anche un ciclo infinito
+  infiniteCircleAfter();
+  // con la funzione giusta mostro la nuova slide
+  showNewSlide();
+  // con la funzione giusta do la classe active alla nuova slide mostrata
+  addActiveClass();
+}, 3000);
+
 // creo un evento sul click della freccia in basso (arrow next)
 arrowAfterEl.addEventListener("click", function () {
   // con la funzione giusta elimino la classe active dalla slide mostrata
