@@ -12,7 +12,7 @@ let slideIndex = 0;
 
 // creo un ciclo for con cui inserisco le immagini nell'html e a cui inserisco la classe active
 let slidesHtml = "";
-for (let i = 0; i < slides.lenght; i++) {
+for (let i = 0; i < slides.length; i++) {
   const slide = slides[i];
 
   let activeClass = i == slideIndex ? "active" : "";
@@ -22,41 +22,42 @@ for (let i = 0; i < slides.lenght; i++) {
 
 slidesContainerEl.innerHTML = slidesHtml;
 
+//creo una variabile per la nuova slide mostrata dopo il click su un bottone
+let newSlide;
 // creo un evento sul click della freccia in basso (arrow next)
 arrowAfterEl.addEventListener("click", function () {
   // elimino la classe active dalla slide mostrata
   let oldSlide = document.querySelector(".slide.active");
   oldSlide.classList.remove("active");
 
-  // incremento slideIndex (indice della slide mostrata)
-  if(slideIndex >= slides.lenght - 1){
+  // incremento slideIndex (indice della slide mostrata) e ottengo anche un ciclo infinito
+  if (slideIndex >= slides.lenght - 1) {
     slideIndex = 0;
   } else {
-      slideIndex++;
-      console.log('Slide index: ' slideIndex);
+    slideIndex++;
+    console.log("Slide index: " + slideIndex);
   }
-
 
   // mostro la nuova slide
   const allSlides = document.getElementsByClassName("slide");
-  const newSlide = allSlides[slideIndex];
+  newSlide = allSlides[slideIndex];
 });
 
 // creo un evento sul click della freccia in alto (arrow before)
 arrowBeforeEl.addEventListener("click", function () {
-   // elimino la classe active dalla slide mostrata
-   let oldSlide = document.querySelector(".slide.active");
-   oldSlide.classList.remove("active");
- 
-   // incremento slideIndex (indice della slide mostrata)
-   if(slideIndex <= 0){
+  // elimino la classe active dalla slide mostrata
+  let oldSlide = document.querySelector(".slide.active");
+  oldSlide.classList.remove("active");
+
+  // incremento slideIndex (indice della slide mostrata) e faccio in modo di ottenere un ciclo infinito
+  if (slideIndex <= 0) {
     slideIndex = slides.lenght - 1;
   } else {
-      slideIndex--;
-      console.log('Slide index: ' slideIndex);
+    slideIndex--;
+    console.log("Slide index: " + slideIndex);
   }
- 
-   // mostro la nuova slide
-   const allSlides = document.getElementsByClassName("slide");
-   const newSlide = allSlides[slideIndex];
+
+  // mostro la nuova slide
+  const allSlides = document.getElementsByClassName("slide");
+  newSlide = allSlides[slideIndex];
 });

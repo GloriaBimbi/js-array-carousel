@@ -27,8 +27,8 @@ body {
   display: none;
 }
 
-.arrow-before,
-.arrow-after {
+#arrow-before,
+#arrow-after {
   border-radius: 50%;
   width: 25px;
   aspect-ratio: 1;
@@ -43,11 +43,11 @@ body {
   transform: translateX(-50%);
 }
 
-.arrow-before {
+#arrow-before {
   top: 165px;
 }
 
-.arrow-after {
+arrow-after {
   bottom: 150px;
 }
 
